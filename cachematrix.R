@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These are 2 functions that can be used to:
+## 1) create a matrix
+## 2) get it's value
+## 3) get it's inverse
+## 4) cache it's inverse
 
-## Write a short comment describing this function
+## This is the main function, that will be used to achieve the 4 tasks
+## described above
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -18,8 +22,18 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function will be used to get the inverse of the matrix, and send it
+## back to the main function
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+  m <- x$getinvers()
+  if(!is.null(m)) {
+    message("getting cached data")
+    return(m)
+  }
+  data <- x$get()
+  m <- solve(data, ...)
+  x$setinverse(m)
+  m
 }
