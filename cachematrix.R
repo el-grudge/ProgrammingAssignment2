@@ -9,10 +9,10 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
-  set <- function(y) {
-    x <<- y
-    m <<- NULL
-  }
+  set <- function(y) {							#The set function: 
+    x <<- y										#the <<- operator is used to
+    m <<- NULL									#to ensure that the variable x
+  }												#is assigned the new matrix
   get <- function() x
   setinverse <- function(solve) m <<- solve
   getinverse <- function() m
